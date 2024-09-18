@@ -16,6 +16,8 @@ export const createEmployee = asyncHandler(async (req, res) => {
     } = req.body;
     console.log(req.body)
     const imagePath = req.file?.path;
+    console.log(imagePath);
+    
     try {
         // Basic validation
         if (!f_Name || !f_Email || !f_Mobile || !f_Designation || !f_Gender) {
