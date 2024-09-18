@@ -1,0 +1,35 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment Variables
+.env
+
+# Build Directories
+build/
+dist/
+public/
+
+# Logs
+logs/
+*.log
+
+# IDE/Editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Test Coverage
+coverage/
+*.lcov
+
+# Miscellaneous
+*.tgz
+*.gz
+*.zip
