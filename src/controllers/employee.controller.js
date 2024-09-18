@@ -110,6 +110,8 @@ export const updateEmployee = asyncHandler(async (req, res) => {
     // console.log(req.body);
     let Image = f_Image;
     const imagePath = req.file?.path;
+    console.log(req.file.path);
+    
     try {
 
         if (!f_Name && !f_Email && !f_Mobile && !f_Designation && !f_Gender && !f_Course && !f_Image) {
