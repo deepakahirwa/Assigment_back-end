@@ -18,7 +18,7 @@ export const createEmployee = asyncHandler(async (req, res) => {
     const imagePath = req.file?.path; // Check if file exists
     try {
         if (!f_Name || !f_Email || !f_Mobile || !f_Designation || !f_Gender) {
-            if (imagePath) { fs.unlinkSync(imagePath); }  // Delete the file if it exists
+            // if (imagePath) { fs.unlinkSync(imagePath); }  // Delete the file if it exists
             throw new ApiError(400, 'Required fields are missing', [], "");
         }
 
@@ -26,12 +26,12 @@ export const createEmployee = asyncHandler(async (req, res) => {
         const mobileRegex = /^\d{10}$/;
 
         if (!emailRegex.test(f_Email)) {
-            if (imagePath) { fs.unlinkSync(imagePath); }  // Delete the file if it exists
+            // if (imagePath) { fs.unlinkSync(imagePath); }  // Delete the file if it exists
             throw new ApiError(400, 'Invalid email format', [], "");
         }
 
         if (!mobileRegex.test(f_Mobile)) {
-            if (imagePath) { fs.unlinkSync(imagePath); }  // Delete the file if it exists
+            // if (imagePath) { fs.unlinkSync(imagePath); }  // Delete the file if it exists
             throw new ApiError(400, 'Invalid mobile number format', [], "");
         }
 
@@ -40,7 +40,7 @@ export const createEmployee = asyncHandler(async (req, res) => {
         });
 
         if (existingEmployee) {
-            if (imagePath) { fs.unlinkSync(imagePath); }  // Delete the file if it exists
+            // if (imagePath) { fs.unlinkSync(imagePath); }  // Delete the file if it exists
             throw new ApiError(409, 'Employee already exists with this email or mobile number', [], "");
         }
 
@@ -108,12 +108,12 @@ export const updateEmployee = asyncHandler(async (req, res) => {
         const mobileRegex = /^\d{10}$/;
 
         if (f_Email && !emailRegex.test(f_Email)) {
-            if (imagePath) { fs.unlinkSync(imagePath); }  // Delete the file if it exists
+            // if (imagePath) { fs.unlinkSync(imagePath); }  // Delete the file if it exists
             throw new ApiError(400, 'Invalid email format');
         }
 
         if (f_Mobile && !mobileRegex.test(f_Mobile)) {
-            if (imagePath) { fs.unlinkSync(imagePath); } // Delete the file if it exists
+            // if (imagePath) { fs.unlinkSync(imagePath); } // Delete the file if it exists
             throw new ApiError(400, 'Invalid mobile number format');
         }
 
@@ -125,7 +125,7 @@ export const updateEmployee = asyncHandler(async (req, res) => {
         });
 
         if (existingEmployee && existingEmployee._id.toString() !== id) {
-            if (imagePath) fs.unlinkSync(imagePath); // Delete the file if it exists
+            // if (imagePath) fs.unlinkSync(imagePath); // Delete the file if it exists
             throw new ApiError(409, 'Email or mobile number already in use', [], "");
         }
 
