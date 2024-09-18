@@ -50,7 +50,8 @@ export const createEmployee = asyncHandler(async (req, res) => {
         // Upload image if exists
         let imageUrl = '';
         if (imagePath) {
-            const image = await uploadOnCloudinary(imagePath); // Ensure Cloudinary upload is completed
+            let pathOfImage = req.file.path;
+            const image = await uploadOnCloudinary(pathOfImage); // Ensure Cloudinary upload is completed
             if (!image || !image.url) throw new ApiError(400, "Avatar is required for registration", [], "");
             imageUrl = image.url;
           // Delete local file after Cloudinary upload
@@ -130,7 +131,8 @@ export const updateEmployee = asyncHandler(async (req, res) => {
 
         // Handle image upload
         if (imagePath) {
-            const image = await uploadOnCloudinary(imagePath);
+            let pathOfImage = req.file.path;
+            const image = await uploadOnCloudinary(pathOfImage);
             if (!image || !image.url) throw new ApiError(400, "Avatar is required for registration", [], "");
             imageUrl = image.url;
             // Delete local file after Cloudinary upload
