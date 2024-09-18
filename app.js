@@ -32,9 +32,10 @@ app.use(
 
 
 
+
+app.use(express.static("public"));
 app.use(express.json({ limit: "1600mb" }));
 app.use(express.urlencoded({ extended: true, limit: "1600mb" }));
-app.use(express.static("public"));
 app.use(cookieParser());
 
 import allroutes from './src/routes/index.js';
