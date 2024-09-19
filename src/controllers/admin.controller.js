@@ -33,8 +33,8 @@ export const createAdmin = async (req, res) => {
     try {
         // Create new admin
         // console.log(req.body);
-        if (!name || !email || !password){
-            throw new ApiError(400,"email password is required")
+        if (!name || !email || !password) {
+            throw new ApiError(400, "email password is required")
         }
         const admin = await Admin.create({
             name,
